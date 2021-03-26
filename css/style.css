@@ -1,10 +1,144 @@
+
 *{
-    border:0;
     padding:0;
+    margin:0;
     box-sizing:border-box;
 }
 
-html,body{
-    height:100%;
-    background:#000;
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    /* background:#222; */
+    background:linear-gradient(45deg,#000 ,#111 ,#222 ,#333);
+    background-size:250% 250%;
+    animation: colors 15s ease infinite;
 }
+
+@keyframes colors{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+button{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#ccc;
+    color:white;
+    border:0;
+    padding:8px 15px;
+}
+
+
+ul{
+    position:relative;
+    display:flex;
+    transform-style:preserve-3d;
+    transform:rotate(-25deg) skew(25deg);
+}
+
+ul li{
+    position:relative;
+    list-style:none;
+    width:60px;
+    height:60px;
+    margin:0 10px;
+}
+
+ul li::before{
+    content:'';
+    position:absolute;
+    bottom:-10px;
+    left:0;
+    width:100%;
+    height:10px;
+    background:#2a2a2a;
+    transform-origin:top;
+    transform:skewX(-41deg);
+}
+ul li::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-9px;
+    width:9px;
+    height:100%;
+    background:#2a2a2a;
+    transform-origin:right;
+    transform:skewY(-49deg);
+}
+
+ul li span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex !important;
+    justify-content:center;
+    align-items:center;
+    background:#333;
+    color:rgba(255, 255, 255, 0.2);
+    font-size:30px !important;
+}
+
+ul li:hover span{
+    z-index:1000;
+    transition: 0.5s;
+    color:#fff;
+    box-shadow:-1px 1px 1px rgba(0,0,0,0.05);
+}
+/* EFEITO CARD */
+ul li:hover span:nth-child(5){
+    transform:translate(40px,-40px);
+    opacity:1;
+}
+ul li:hover span:nth-child(4){
+    transform:translate(30px,-30px);
+    opacity:0.8;
+}
+ul li:hover span:nth-child(3){
+    transform:translate(20px,-20px);
+    opacity:0.6;
+}
+ul li:hover span:nth-child(2){
+    transform:translate(10px,-10px);
+    opacity:0.4;
+}
+ul li:hover span:nth-child(1){
+    transform:translate(0px,0px);
+    opacity:0.2;
+}
+/*BOX COLORS*/
+ul li:hover::before,ul li:hover::after{
+    background-color:#444;
+}
+/* GitHub */
+ul li:nth-child(1):hover span{
+    background-color:black;
+}
+/* YouTube */
+ul li:nth-child(2):hover span{
+    background-color:red;
+}
+/* LinkdinIn */
+ul li:nth-child(3):hover span{
+    background-color:#0a66c2;
+    /* background-color:#3c3cb4; */
+}
+/* Facebook */
+ul li:nth-child(4):hover span{
+    background-color:#3d5999;
+}
+/* Code<> */
+ul li:nth-child(5):hover span{
+    background-color:#1a0af6;
+}
+/* Pasta/folder */
+ul li:nth-child(6):hover span{
+    background-color:#dad600;
+}
+/* ... */
